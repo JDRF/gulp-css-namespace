@@ -1,0 +1,11 @@
+a.namespace {
+	background: blue;
+}
+.namespace-some-css-selector {
+	background: green;
+}
+@media (min-width: 768px) {
+	.namespace-some-css-selector {
+		width: 750px;
+	}
+}

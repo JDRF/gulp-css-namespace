@@ -1,0 +1,11 @@
+a {
+	background: blue;
+}
+.some-css-selector {
+	background: green;
+}
+@media (min-width: 768px) {
+	.some-css-selector {
+		width: 750px;
+	}
+}
