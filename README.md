@@ -1,4 +1,4 @@
-# gulp-css-wrap
+# gulp-css-namespace
 
 [gulp](http://gulpjs.com/) plugin to add a namespace to all CSS classes
 
