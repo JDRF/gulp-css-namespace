@@ -20,7 +20,11 @@ module.exports = function (options) {
 			if (n) {
 				string += n;
 				if (instance || index < nodes.length - 1) {
-					string += (1 === nodes.length) ? '.' + className : '.' + className + '-';
+					if (options.html) {
+						string += (1 === nodes.length) ? '.' + className : '.' + className + '-';
+					} else if (1 !== nodes.length) {
+						string += '.' + className + '-';
+					}
 				}
 				instance = false;
 			} else {
@@ -58,7 +62,8 @@ module.exports = function (options) {
 
 	function css_namepsace(file) {
 		options = deepmerge({
-			namespace: false
+			namespace: false,
+			html: false,
 		}, options || {});
 
 		var css = parse(file);

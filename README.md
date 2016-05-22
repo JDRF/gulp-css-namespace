@@ -21,6 +21,14 @@ gulp.task('css-namepsace', function() {
 	.pipe(gulp.dest('dist'));
 });
 ```
+
+#### Properties
+
+* obj._selector_
+ * String: Namespace to use
+* obj._html_
+ * Boolean: Append namespace to singular HTML properties
+
 #### Example
 
 The following, when run through `gulp-css-namespace`, will produce the second result.
