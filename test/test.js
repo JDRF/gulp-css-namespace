@@ -14,7 +14,10 @@ test('result test', function (t) {
 		contents: new Buffer(fs.readFileSync('./test/expected/styles.css'))
 	});
 
-	var myNamespacer = namespace({namespace: 'namespace'});
+	var myNamespacer = namespace({
+		namespace: 'namespace',
+		exclude: ['first-selector']
+	});
 
 	// write the fake file to it
 	myNamespacer.write(result);

@@ -13,11 +13,15 @@ module.exports = function (options) {
 		var instance = true,
 			string = '',
 			properties1 = node.split('::'),
-			properties2 = properties1[0].split(':'),
-			nodes = properties2[0].split('.');
+			properties2 = node.split(':not'),
+			properties3 = properties2[0].split(':'),
+			nodes = properties3[0].split('.');
 
 		nodes.forEach( function(n, index) {
-			if (n) {
+			if (n && !options.exclude.indexOf(n)) {
+				var regex = new RegExp(className + '-([^' + className + '-]*)$');
+				string = string.replace(regex, n);
+			} else if (n) {
 				string += n;
 				if (instance || index < nodes.length - 1) {
 					if (options.html) {
@@ -34,11 +38,11 @@ module.exports = function (options) {
 		});
 
 		if ( 'undefined' !== typeof properties1[1] ) {
-			string =  string + '::' + properties1[1];
+			string = string + '::' + properties1[1];
 		} else if ( 'undefined' !== typeof properties2[1] ) {
-			string =  string + ':' + properties2[1];
-		} else {
-			string =  string;
+			string = string + ':not' + properties2[1];
+		} else if ( 'undefined' !== typeof properties3[1] ) {
+			string = string + ':' + properties3[1];
 		}
 		return string;
 	}
@@ -48,11 +52,12 @@ module.exports = function (options) {
 			if (r.selectors) {
 				r.selectors.forEach( function(s, index) {
 					if (options.namespace) {
-						s = processNode(s, options.namespace)
+						s = processNode(s, options.namespace);
 					}
 					r.selectors[ index ] = s;
 				});
 			}
+
 			if (r.type === 'media') {
 				r.rules = processRules(r.rules, options);
 			}
@@ -64,6 +69,7 @@ module.exports = function (options) {
 		options = deepmerge({
 			namespace: false,
 			html: false,
+			exclude: [],
 		}, options || {});
 
 		var css = parse(file);

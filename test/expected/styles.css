@@ -1,5 +1,8 @@
-a.namespace {
+a {
 	background: blue;
+}
+a.first-selector {
+	background: red;
 }
 .namespace-some-css-selector {
 	background: green;

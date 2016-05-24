@@ -28,6 +28,8 @@ gulp.task('css-namepsace', function() {
  * String: Namespace to use
 * obj._html_
  * Boolean: Append namespace to singular HTML properties
+* obj._exclude_
+ * Array: Array of classes to exclude from the namespace
 
 #### Example
 

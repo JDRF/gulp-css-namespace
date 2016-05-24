@@ -1,6 +1,9 @@
 a {
 	background: blue;
 }
+a.first-selector {
+	background: red;
+}
 .some-css-selector {
 	background: green;
 }
