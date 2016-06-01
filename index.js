@@ -18,7 +18,7 @@ module.exports = function (options) {
 			nodes = properties3[0].split('.');
 
 		nodes.forEach( function(n, index) {
-			if (n && !options.exclude.indexOf(n)) {
+			if (n && 0 <= options.exclude.indexOf(n)) {
 				var regex = new RegExp(className + '-([^' + className + '-]*)$');
 				string = string.replace(regex, n);
 			} else if (n) {

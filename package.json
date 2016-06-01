@@ -1,7 +1,7 @@
 {
   "name": "gulp-css-namespace",
   "description": "Add a namespace to all CSS classes",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/JDRF/gulp-css-namespace",
   "author": {
     "name": "Nick Smith",
@@ -21,18 +21,19 @@
     "index.js"
   ],
   "readmeFilename": "README.md",
-  "dependencies": {},
-  "devDependencies": {
-    "clean-css": "^3.4.12",
+  "dependencies": {
     "css-parse": "^2.0.0",
     "css-stringify": "^2.0.0",
     "deepmerge": "^0.2.10",
+    "through2": "^2.0.1",
+    "gulp-util": "^3.0.7"
+  },
+  "devDependencies": {
+    "clean-css": "^3.4.12",
     "fs": "0.0.2",
-    "gulp-util": "^3.0.7",
     "mocha": "^2.4.5",
     "tap-spec": "^4.1.1",
     "tape": "^4.5.1",
-    "through2": "^2.0.1",
     "vinyl": "^1.1.1"
   },
   "scripts": {
