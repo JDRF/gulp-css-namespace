@@ -13,12 +13,10 @@ module.exports = function (options) {
 		var instance = true,
 			string = '',
 			properties1 = node.split('::'),
-			properties2 = node.split(':not'),
+			properties2 = properties1[0].split(':not'),
 			nodes = properties2[0].split('.');
 
 		nodes.forEach( function(n, index) {
-			var colon = n.split(':');
-			n = colon[0];
 			if (n && 0 <= options.exclude.indexOf(n)) {
 				var regex = new RegExp(className + '-([^' + className + '-]*)$');
 				string = string.replace(regex, n);
@@ -28,9 +26,6 @@ module.exports = function (options) {
 					if (options.html) {
 						string += (1 === nodes.length) ? '.' + className : '.' + className + '-';
 					} else if (1 !== nodes.length) {
-						if ( 'undefined' !== typeof colon[1] ) {
-							string = string + ':' + colon[1];
-						}
 						string += '.' + className + '-';
 					}
 				}
@@ -47,7 +42,7 @@ module.exports = function (options) {
 		} else if ( 'undefined' !== typeof properties2[1] ) {
 			string = string + ':not' + properties2[1];
 		}
-		
+
 		return string;
 	}
 

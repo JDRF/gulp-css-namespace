@@ -1,7 +1,7 @@
 {
   "name": "gulp-css-namespace",
   "description": "Add a namespace to all CSS classes",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "homepage": "https://github.com/JDRF/gulp-css-namespace",
   "author": {
     "name": "Nick Smith",
